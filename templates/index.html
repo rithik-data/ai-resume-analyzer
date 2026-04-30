@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>AI Resume Analyzer</h1>
+
+<form method="POST" enctype="multipart/form-data">
+<input type="file" name="resume" required><br><br>
+
+<textarea name="jobdesc" placeholder="Paste Job Description"></textarea>
+<br><br>
+
+<button type="submit">Analyze</button>
+</form>
+
+{% if score %}
+<h2>ATS Score: {{score}}%</h2>
+
+<ul>
+{% for s in skills %}
+<li>{{s}}</li>
+{% endfor %}
+</ul>
+
+<ul>
+{% for m in missing %}
+<li>{{m}}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+</body>
+</html>
